@@ -33,7 +33,7 @@ Planning to develop more advanced features, create graphical interfaces, and use
 ## Contact ✉️
 
 Feel free to reach out:  
-[LinkedIn](https://www.linkedin.com/in/your-profile) | [Email](mailto:your.email@example.com)  
+[LinkedIn](https://www.linkedin.com/in/filip-%C5%82uka-495a71372/) | [Email](mailto:kernel.panic.kill.init.com)  
 
 ---
 
