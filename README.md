@@ -17,7 +17,7 @@
 ## How to Run? ▶️
 
 1. Clone this repo:  
-   `git clone https://github.com/your-username/Python-Projects.git`
+   `git clone https://github.com/Kernel-Panic-Kill-Init/Python-Projects.git`
 
 2. Navigate to the project folder and run the Python script:  
    `python project_name.py`
