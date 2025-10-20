@@ -1,34 +1,48 @@
 
-# BMI Calculator
+                                    # BMI Calculator
+    
+# Ask for user's name
+name = input("Enter your name: ")
 
+# Ask for user's age
+age = input("Enter your age: ")
 
-while True:  # Validation loop for weight input
-    weight = input("Enter your weight in kg: ")
-    if weight.isdigit() and float(weight) > 0:  # Prevents that the numbers are over 0
-        weight = float(weight)
-        break
-    else:
-        print("Please enter a valid number greater than zero!")
+# Ask user to choose units for weight and height
+unit = input("Choose your units:\n1. KG/CM\n2. LB/FT\n")
 
-while True:  # Validation loop for height input
-    height = input("Enter your height in cm: ")
-    if height.isdigit() and float(height) > 0:  # Prevents that the numbers are over 0
-        height_m = float(height) / 100  # Convert cm to meters
-        break
-    else:
-        print("Please enter a valid number greater than zero!")
+# Input validation for weight
+while True:
+    weight = input("Enter your weight: ")
+    try:
+        weight_val = float(weight)  # Try converting input to float
+        if weight_val > 0:          # Value must be positive
+            break
+        else:
+            print("Value must be greater than 0!")
+    except ValueError:
+        print("Please enter a valid number!")
 
-bmi = weight / (height_m ** 2)
-print(f"Your BMI is: {bmi:.2f}")
+# Input validation for height
+while True:
+    height = input("Enter your height: ")
+    try:
+        height_val = float(height)   # Try converting input to float
+        if height_val > 0:           # Value must be positive
+            break
+        else:
+            print("Value must be greater than 0!")
+    except ValueError:
+        print("Please enter a valid number!")
 
-if bmi < 18.5:
-    print("Underweight.")
-elif 18.5 <= bmi < 25:
-    print("Normal weight.")
-elif 25 <= bmi < 30:
-    print("Overweight, try to exercise a bit!")
-else:
-    print("Obese, take care of your health!")
+# Unit conversion based on user choice
+if unit == "1":
+    height_val = height_val / 100    # Convert cm to meters
+elif unit == "2":
+    weight_val = weight_val * 0.453592   # Convert lbs to kg
+    height_val = height_val * 0.3048     # Convert feet to meters
 
+# Calculate BMI
+bmi = weight_val / (height_val ** 2)
 
-
+# Print the result with personalized message
+print(f"{name}, age {age}, your BMI is: {bmi:.2f}")
