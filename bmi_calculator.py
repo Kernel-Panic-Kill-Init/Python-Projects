@@ -46,3 +46,12 @@ bmi = weight_val / (height_val ** 2)
 
 # Print the result with personalized message
 print(f"{name}, age {age}, your BMI is: {bmi:.2f}")
+
+if int(age) < 65:
+    print(f"Hi {name}! At your age of {age}, your BMI is {bmi:.2f}.")
+    print("For your age, a healthy BMI range is typically between 18.5 and 24.9.")
+    print("Note: BMI does not account for muscle mass or physical activity. Interpretation can vary for athletic or muscular individuals.")
+else:
+    print(f"Hi {name}! At your age of {age}, your BMI is {bmi:.2f}.")
+    print("For adults over 65, a healthy BMI range may be between 25 and 27, according to health recommendations.")
+    print("Always consult a medical professional when interpreting BMI values.")
