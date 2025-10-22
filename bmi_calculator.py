@@ -1,33 +1,21 @@
-            ######################################################### BMI Calculator ###############################################################
-
-
+######################################################################## BMI Calculator ##############################################################################
 
 # Taking the user's inputs
+
 def info_gathering():
     while True:
         name = input("Enter your name: ") # Ask for user's name
-        age = input("Eneter your age: ") # Ask for user's age
+        age = input("Enter your age: ") # Ask for user's age
         unit = input("Choose your units: \n1. KG/CM\2. LG/FT\n") # Ask user to choose units for weight and height
         return name, age, unit
   
-  #################################################################################################################################################################
-  
-# Ask for user's name
- # name = input("Enter your name: ")
-
-# Ask for user's age
-# age = input("Enter your age: ")
-
-# Ask user to choose units for weight and height
- # unit = input("Choose your units:\n1. KG/CM\n2. LB/FT\n")
-
-
+####################################################################### BMI Calculator ##############################################################################
 
 # Input validation 
 
 def get_positive_number(prompt):
     while True:
-        value = input()
+        value = input(prompt)
         try:
             val = float(value)
             if val > 0:
@@ -37,26 +25,61 @@ def get_positive_number(prompt):
         except ValueError:
             print("Please enter a valid number!")
 
-weight_val = get_positive_number("Enter your weight: ")
-height_val = get_positive_number("Enter your height: ")
-
-
-
-
-
-
+####################################################################### BMI Calculator ##############################################################################
 
 #Converting units
-def convert_units(weight, height, unit):#
-    if unit == 1:
+
+def convert_units(weight, height, unit):
+    if unit == "1":
         height = height / 100 #Converting cm to m
-    elif unit == 2:
+    elif unit == "2":
         weight = weight * 0.453592 # Converting lb to kg
         height = height * 0.3048 # Converting ft to m
-        
-        
+    return weight, height
 
 
+
+ ####################################################################### BMI Calculator ##############################################################################
+  
+def calculate_bmi(weight, height):
+    return weight / (height ** 2)     
+ 
+ ####################################################################### BMI Calculator ##############################################################################
+
+def main():
+    name, age, unit = info_gathering()
+    weight_val = get_positive_number("Enter your weight: ")
+    height_val = get_positive_number("Enter your height: ")      
+    weight_val, height_val = convert_units(weight_val, height_val, unit)
+    bmi = calculate_bmi(weight_val, height_val)
+    print(f"Hi {name}! Your BMI is {bmi:.2f}")
+    
+    
+if __name__ == "__main__":
+    main()
+ ####################################################################### BMI Calculator ##############################################################################
+ 
+
+
+
+ ####################################################################### BMI Calculator ##############################################################################
+
+
+
+
+ ####################################################################### BMI Calculator ##############################################################################
+ 
+# Ask for user's name
+ # name = input("Enter your name: ")
+
+# Ask for user's age
+# age = input("Enter your age: ")
+
+# Ask user to choose units for weight and height
+ # unit = input("Choose your units:\n1. KG/CM\n2. LB/FT\n")
+
+####################################################################### BMI Calculator ##############################################################################
+ 
 
 #while True:
 #    weight = input("Enter your weight: ")
@@ -89,10 +112,10 @@ def convert_units(weight, height, unit):#
 #    height_val = height_val * 0.3048     # Convert feet to meters
 
 # Calculate BMI
-bmi = weight_val / (height_val ** 2)
+# bmi = weight_val / (height_val ** 2)
 
 # Print the result with personalized message
-print(f"{name}, age {age}, your BMI is: {bmi:.2f}")
+# print(f"{name}, age {age}, your BMI is: {bmi:.2f}")
 
 # if int(age) < 65:
 #     print(f"Hi {name}! At your age of {age}, your BMI is {bmi:.2f}.")
