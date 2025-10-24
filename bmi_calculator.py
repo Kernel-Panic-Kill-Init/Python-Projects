@@ -1,4 +1,6 @@
 ######################################################################## BMI Calculator ##############################################################################
+import csv 
+from datetime import datetime
 
 # Taking the user's inputs
 
@@ -58,6 +60,8 @@ def age_check(age, name, bmi):
 
 ####################################################################### BMI Calculator ##############################################################################
 
+ # Getting all functions in one
+ 
 def main():
     name, age, unit = info_gathering()
     weight_val = get_positive_number("Enter your weight: ")
@@ -69,7 +73,15 @@ def main():
 
 if __name__ == "__main__":
     main()
- ####################################################################### BMI Calculator ##############################################################################
+
+ 
+ # Adding function that saves all inputs in csv file
+ 
+current_date = datetime.now().strftime("%d-%m-%Y")
+with open('bmi_results.csv', 'a', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerow([name, age, bmi, current_date])
+     ####################################################################### BMI Calculator ##############################################################################
 
 
 ####################################################################### BMI Calculator ##############################################################################
