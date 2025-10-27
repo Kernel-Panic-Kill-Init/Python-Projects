@@ -10,7 +10,7 @@
   A simple program that calculates Body Mass Index (BMI) with input validation.  
   Goal: learn loops, conditions, and basic error handling.
 
-- Upcoming projects: to-do list, data scraper, simple web applications. 🌱
+- Upcoming projects: to-do list, data scraper, simple web applications - and everything of this will be randomly picked by auto-app 🌱
 
 ---
 
