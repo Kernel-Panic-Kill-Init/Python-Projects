@@ -35,11 +35,11 @@ def menu():
                         pass
         # Calling function showing ended projects
                 elif main_menu == "4":
-                        df = pd.read_excel("projects.ods", engine = "odf") # Reading the .ods file                      # Calling function that shows all of the projects4
+                        df = pd.read_excel("projects.ods", engine = "odf") # Reading the .ods file                      # Calling function that shows all of the projects --- and why .ods? Bc I'm working on Linux ;v
                         df = df[['Project', 'Description']] # Only columns that I'm interested in, bc in other way pandas shows Undefined columns and it looks shitty
                         df = df.dropna(subset=['Project', 'Description'], how='all') #Remowes rows where both fields are empty
                         #pd.set_option("display.max_rows", None) # Showing all rows from the file
-                        script_dir = os.path.dirname(os.path.abspath(__file__)) # Making sure that the file .ods will be found (I've fucked up and have had the "WTF" momen when it couldn't find the file xD)
+                        script_dir = os.path.dirname(os.path.abspath(__file__)) # Making sure that the file .ods will be found (I've fucked up and have had the "WTF" moment when it couldn't find the file xD)
                         file_path = os.path.join(script_dir, "projects.ods")
                         print(df)
                 elif main_menu == "0":
