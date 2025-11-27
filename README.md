@@ -10,6 +10,11 @@
   A simple program that calculates Body Mass Index (BMI) with input validation.  
   Goal: learn loops, conditions, and basic error handling.
 
+## Contact Book
+
+- **A console-based contact management app.**  
+  Goal: practice functions, dictionaries, control flow and basic program structure.
+
 - Upcoming projects: to-do list, data scraper, simple web applications - and everything of this will be randomly picked by auto-app 🌱
 
 ---
