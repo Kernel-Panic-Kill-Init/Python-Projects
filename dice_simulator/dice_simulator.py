@@ -3,7 +3,7 @@ import random
 def menu():
     while True:
         dice = []
-        number_of_dices = int(input("Choose how many dices you want: "))
+        number_of_dices = int(input("Choose how many dices you want 🎲: "))
         main_menu = int(input(
             "Choose which dice you prefer:\n"
             "1. 4 \n"
