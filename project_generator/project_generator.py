@@ -14,13 +14,12 @@ print("Hello there! I see you're lazy and don't want to think too much? That's g
 ############################################ Function to save DataFrame to ODS ############################################
 
 def df_to_ods(df, filename):
-    """
-    Saves a pandas DataFrame to an ODS file.
-    
-    Args:
-        df (pd.DataFrame): The DataFrame to save
-        filename (str): The name of the output ODS file
-    """
+    #"""
+    #Saves a pandas DataFrame to an ODS file.
+    #Args:
+    #   df (pd.DataFrame): The DataFrame to save
+     #   filename (str): The name of the output ODS file
+    #"""
     # Create a new ODS document
     ods = ezodf.newdoc(doctype="ods", filename=filename)
     
@@ -39,6 +38,11 @@ def df_to_ods(df, filename):
         for c, value in enumerate(row):
             sheet[r+1, c].set_value(value)
     
+    # Checking function for NaN values to avoid problems with them later on
+    if pd.isna(value):
+        sheet[r+1, c].set_value("")
+    else:
+        sheet[r+1, c].set_value(value)
     # Save the ODS file to disk
     ods.save()
 
@@ -63,7 +67,7 @@ def menu():
         # Option 1: Random project selection and transfer to "in progress"
         if main_menu == "1":
             # Load the projects file into a DataFrame
-            df = pd.read_excel("projects.ods", engine="odf")
+            df = pd.read_excel("projects.ods", engine="odf", dtype=object)
             
             # Extract the "Project" column and remove empty values
             projects = df["Project"].dropna().tolist()
@@ -114,22 +118,25 @@ def menu():
             except FileNotFoundError:
                 # Handle case where no projects have been completed yet
                 print("No ended projects yet.")
-        
-        # Option 4: Display all available projects
+
+             # Option 4: Display all available projects
         elif main_menu == "4":
-            # Load the main projects file
-            df = pd.read_excel("projects.ods", engine="odf")
-            
-            # Select only the columns we're interested in
-            df = df[['Project', 'Description']]
-            
-            # Remove rows where both Project and Description are empty
-            df = df.dropna(subset=['Project', 'Description'], how='all')
-            
-            # Display the filtered DataFrame
-            print("\nAll projects:")
-            print(df)
-        
+            try:
+                 # Load the main projects file
+                df = pd.read_excel("projects.ods", engine="odf")
+                 # Select only the columns we're interested in
+                df = df[['Project', 'Description']]
+                   # Remove rows where both Project and Description are empty
+                df = df.dropna(subset=['Project', 'Description'], how='all')
+                   # Display the filtered DataFrame
+                if df.empty:
+                    print("\nNo projects available.")
+                else:
+                    print("\nAll projects:")    
+                    print(df)
+            except FileNotFoundError:
+                print("Projects file not found.")
+
         # Option 0: Exit the application
         elif main_menu == "0":
             print("Thanks for using this app. Hang tight.")
